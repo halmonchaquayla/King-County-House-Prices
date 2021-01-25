@@ -1,66 +1,62 @@
-# Phase 2 Project
+# Predictions for King County Houses
 
-Another module down--you're almost half way there!
+For this project, I will use regression modeling to analyze house sales in King County and predict prices for other homes in that area. With my model, we can analyze different variables and see which one has the largest impact on the price.
+This sort of model could be used to help real estate agents, clients, and investors take advantage of opportunities to sell, upgrade, or buy homes.
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-2-project-campus/master/halfway-there.gif)
+# Data
 
-All that remains in Phase 2 is to put our newfound data science skills to use with a large project! This project should take 20 to 30 hours to complete.
+The dataset can be found at 'kc_house_data.csv'. It containes 21 variables and 21k transactions. It was fairly cleaned with a few missing/unrecognizable values. Columns descriptions: 
+* id - unique identifier for a house
+* dateDate - house was sold
+* pricePrice - is prediction target
+* bedroomsNumber - of Bedrooms/House
+* bathroomsNumber - of bathrooms/bedrooms
+* sqft_livingsquare - footage of the home
+* sqft_lotsquare - footage of the lot
+* floorsTotal - floors (levels) in house
+* waterfront - House which has a view to a waterfront
+* view - Quality of view
+* condition - How good the condition is ( Overall )
+* grade - overall grade given to the housing unit, based on King County grading system
+* sqft_above - square footage of house apart from basement
+* sqft_basement - square footage of the basement
+* yr_built - Built Year
+* yr_renovated - Year when house was renovated
+* zipcode - zip
+* lat - Latitude coordinate
+* long - Longitude coordinate
+* sqft_living15 - The square footage of interior housing living space for the nearest 15 neighbors
+* sqft_lot15 - The square footage of the land lots of the nearest 15 neighbors
 
-## Project Overview
+I also added data with the cities in King County from 'uszips.csv' which can be found in this repository. I used 24 cities which cut down the quantity of zipcodes I had to deal with.
 
-For this project, you will use regression modeling to analyze house sales in a northwestern county.
+![kc_area](images/project9.png)
 
-### The Data
+# Key Findings
 
-This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this repo. The description of the column names can be found in `column_names.md` in the same folder. As with most real world data sets, the column names are not perfectly described, so you'll have to do some research or use your best judgment if you have questions about what the data means.
+**Which area has the most/least expensive houses?**
 
-It is up to you to decide what data from this dataset to use and how to use it. If you are feeling overwhelmed or behind, we recommend you ignore some or all of the following features:
+![expensive_houses](images/project4.png)
 
-* date
-* view
-* sqft_above
-* sqft_basement
-* yr_renovated
-* zipcode
-* lat
-* long
-* sqft_living15
-* sqft_lot15
+Here the graph is showing the least to most expensive cities to live by the median pricing of houses in the area. So even though some cities have high prices, you can still find a good deal if you're on a budget.
 
-### Business Problem
+**Does the grading system have a significant impact on pricing?**
 
-It is up to you to define a stakeholder and business problem appropriate to this dataset.
+![house_grade](images/project5.png)
 
-If you are struggling to define a stakeholder, we recommend you complete a project for a real estate agency that helps homeowners buy and/or sell homes. A business problem you could focus on for this stakeholder is the need to provide advice to homeowners about how home renovations might increase the estimated value of their homes, and by what amount.
+Above you can see the grading scale King County uses for their system. Below you can see the pricing on houses with a certain grade. It seems to have a positive relationship with prices. So if you're in the market to sell it's best to try to get a grade 9 or better. For example, going from grade 8 to grade 9 can increase your profits by at least 100K(comaparing the medians).
 
-## Deliverables
+![grade_and_prices](images/project6.png)
 
-There are three deliverables for this project:
+**How does adding bathrooms affect the pricing of houses?**
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
+![bathroom_scale](images/project7.png)
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
+So adding bathrooms can increase the amount you pay for your new home. Make sense, since it adds to the size of the home. Above shows the scale steadily going up until you get to around 5. Below you can see the increase in price as you move from 1 to 4 bathrooms. So the best bet you be upgrading from either 2(b2) to 3(b3), or 3 to 4(b4) bathrooms, for the smallest increase in price.
 
-### Key Points
+![bath_perc](images/project8.png)
 
-* **Your deliverables should explicitly address each step of the data science process.** Refer to [the Data Science Process lesson](https://github.com/learn-co-curriculum/dsc-data-science-processes) from Topic 19 for more information about process models you can use.
-
-* **Your Jupyter Notebook should demonstrate an iterative approach to modeling.** This means that you begin with a basic model, evaluate it, and then provide justification for and proceed to a new model. After you finish refining your models, you should provide 1-3 paragraphs discussing your final model - this should include interpreting at least 3 important parameter estimates or statistics.
-
-* **Based on the results of your models, your notebook and presentation should discuss at least two features that have strong relationships with housing prices.**
-
-## Getting Started
-
-Start on this project by forking and cloning [this project repository](https://github.com/learn-co-curriculum/dsc-phase-2-project) to get a local copy of the dataset.
-
-We recommend structuring your project repository similar to the structure in [the Phase 1 Project Template](https://github.com/learn-co-curriculum/dsc-project-template). You can do this either by creating a new fork of that repository to work in or by building a new repository from scratch that mimics that structure.
-
-## Project Submission and Review
-
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
-
-## Summary
-
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+# Recommendations:
+1. Buy a house with a grade no lower than 6. Over time, do some renovations to get it up to at least a grade 9 for potential selling bonus.
+2. Narrow down to the top five cities within your budget. Even the cities with more expensive houses, aside from Medina, meets up with the average prices for houses sold in King County.
+3. Looking to add extra rooms, the best bang for your buck is moving from 2 bathrooms to 3, or 3 bathrooms to 4. 
